@@ -19,12 +19,17 @@ function verifyCart(code: string): string | null {
     carrinho_4: "CARRINHO 4"
   }
 
+  let mySpan = document.getElementById('cartNumber') as HTMLInputElement;
+
   for (const cartKey in carts) {
     const cartItems = carts[cartKey];
     if (cartItems.includes(Number(code))) {
+      mySpan.innerHTML = `O notebook ${code} pertence ao ${carrinhosDicionario[cartKey]}`
       console.log("carrinho ", cartKey)
       alert("LOCALIZADO NO " + carrinhosDicionario[cartKey])
       return cartKey;
+    } else {
+      mySpan.innerHTML = `O notebook ${code} não pertence a nenhum carrinho`
     }
   }
 

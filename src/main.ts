@@ -41,8 +41,8 @@ function onScanSuccess(decodedText: string) {
   }
 }
 
-function onScanFailure(error: string) {
-  //console.warn(Code scan error = ${error});
+function onScanFailure() {
+  // console.warn(`Code scan error = ${error}`);
 }
 
 let html5QrcodeScanner = new Html5QrcodeScanner(

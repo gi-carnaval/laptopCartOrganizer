@@ -8,10 +8,10 @@ type CarrinhosDicionarioProps = {
 
 function verifyCart(code: string): string | null {
   const carts: Cart = {
-    carrinho_1: [1266026, 541651616516],
+    carrinho_1: [1266010, 541651616516],
     carrinho_2: [14981668995, 651652315189],
     carrinho_3: [52635963226, 85236523615],
-    carrinho_4: [48491651651, 654181655615]
+    carrinho_4: [1265984, 1265982]
   }
 
   const carrinhosDicionario: CarrinhosDicionarioProps = {

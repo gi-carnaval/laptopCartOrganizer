@@ -38,7 +38,8 @@ function verifyCart(code: string): string | null {
 
 function onScanSuccess(decodedText: string) {
   console.log(decodedText)
-  const cartKey = verifyCart(decodedText);
+  console.log()
+  const cartKey = verifyCart(decodedText.substring(0, 7));
   if (cartKey) {
     console.log(`O código ${decodedText} pertence ao carrinho ${cartKey}`);
   } else {

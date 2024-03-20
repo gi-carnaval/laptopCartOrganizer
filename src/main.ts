@@ -1,32 +1,48 @@
 import { Html5QrcodeScanner } from "html5-qrcode";
 
-function verifyCart(code: string) {
+type CartKey = string;
+type Cart = Record<CartKey, number[]>;
+type CarrinhosDicionarioProps = {
+  [key: string]: string;
+};
 
-  const carts = {
-    cart_1: [15451651651, 541651616516],
-    cart_2: [14981668995, 651652315189],
-    cart_3: [52635963226, 85236523615],
-    cart_4: [48491651651, 654181655615]
+function verifyCart(code: string): string | null {
+  const carts: Cart = {
+    carrinho_1: [1266026, 541651616516],
+    carrinho_2: [14981668995, 651652315189],
+    carrinho_3: [52635963226, 85236523615],
+    carrinho_4: [48491651651, 654181655615]
+  }
+
+  const carrinhosDicionario: CarrinhosDicionarioProps = {
+    carrinho_1: "CARRINHO 1", carrinho_2: "CARRINHO 2", carrinho_3: "CARRINHO 3",
+    carrinho_4: "CARRINHO 4"
   }
 
   for (const cartKey in carts) {
     const cartItems = carts[cartKey];
-    if (cartItems.includes(code)) {
+    if (cartItems.includes(Number(code))) {
+      console.log("carrinho ", cartKey)
+      alert("LOCALIZADO NO " + carrinhosDicionario[cartKey])
       return cartKey;
     }
   }
-  
+
   return null; // Retorna null se o código não estiver em nenhum carrinho
-  console.log(carts)
 }
 
 function onScanSuccess(decodedText: string) {
   console.log(decodedText)
-  verifyCart(decodedText)
+  const cartKey = verifyCart(decodedText);
+  if (cartKey) {
+    console.log(`O código ${decodedText} pertence ao carrinho ${cartKey}`);
+  } else {
+    console.log(`O código ${decodedText} não pertence a nenhum carrinho`);
+  }
 }
 
 function onScanFailure(error: string) {
-  console.warn(`Code scan error = ${error}`);
+  //console.warn(Code scan error = ${error});
 }
 
 let html5QrcodeScanner = new Html5QrcodeScanner(

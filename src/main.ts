@@ -38,13 +38,13 @@ function verifyCart(code: string): string | null {
 
 function onScanSuccess(decodedText: string) {
   console.log(decodedText)
-  console.log()
   const cartKey = verifyCart(decodedText.substring(0, 7));
   if (cartKey) {
     console.log(`O código ${decodedText} pertence ao carrinho ${cartKey}`);
   } else {
     console.log(`O código ${decodedText} não pertence a nenhum carrinho`);
   }
+  return
 }
 
 function onScanFailure() {
@@ -53,7 +53,7 @@ function onScanFailure() {
 
 let html5QrcodeScanner = new Html5QrcodeScanner(
   "reader",
-  { fps: 10, qrbox: { width: 250, height: 250 } },
+  { fps: 10, qrbox: { width: 350, height: 350 }, aspectRatio: 1, experimentalFeatures: {useBarCodeDetectorIfSupported: true}, videoConstraints: {frameRate: 10, noiseSuppression: true} },
   /* verbose= */ false);
 
 html5QrcodeScanner.render(onScanSuccess, onScanFailure);

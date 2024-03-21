@@ -26,7 +26,6 @@ function verifyCart(code: string): string | null {
     if (cartItems.includes(Number(code))) {
       mySpan.innerHTML = `O notebook ${code} pertence ao ${carrinhosDicionario[cartKey]}`
       console.log("carrinho ", cartKey)
-      alert("LOCALIZADO NO " + carrinhosDicionario[cartKey])
       return cartKey;
     } else {
       mySpan.innerHTML = `O notebook ${code} não pertence a nenhum carrinho`
@@ -44,7 +43,6 @@ function onScanSuccess(decodedText: string) {
   } else {
     console.log(`O código ${decodedText} não pertence a nenhum carrinho`);
   }
-  return
 }
 
 function onScanFailure() {
@@ -53,7 +51,7 @@ function onScanFailure() {
 
 let html5QrcodeScanner = new Html5QrcodeScanner(
   "reader",
-  { fps: 10, qrbox: { width: 350, height: 350 }, aspectRatio: 1, experimentalFeatures: {useBarCodeDetectorIfSupported: true}, videoConstraints: {frameRate: 10, noiseSuppression: true} },
-  /* verbose= */ false);
+  { fps: 10, qrbox: { width: 350, height: 350 }, aspectRatio: 1, experimentalFeatures: { useBarCodeDetectorIfSupported: true }, videoConstraints: { frameRate: 10, noiseSuppression: true } },
+  /* verbose= */ true);
 
 html5QrcodeScanner.render(onScanSuccess, onScanFailure);

@@ -1,5 +1,3 @@
-import { Html5QrcodeScanner } from "html5-qrcode";
-
 type CartKey = string;
 type Cart = Record<CartKey, number[]>;
 type CarrinhosDicionarioProps = {
@@ -35,7 +33,7 @@ function verifyCart(code: string): string | null {
   return null; // Retorna null se o código não estiver em nenhum carrinho
 }
 
-function onScanSuccess(decodedText: string) {
+export function onScanSuccess(decodedText: string) {
   console.log(decodedText)
   const cartKey = verifyCart(decodedText.substring(0, 7));
   if (cartKey) {
@@ -44,14 +42,3 @@ function onScanSuccess(decodedText: string) {
     console.log(`O código ${decodedText} não pertence a nenhum carrinho`);
   }
 }
-
-function onScanFailure() {
-  // console.warn(`Code scan error = ${error}`);
-}
-
-let html5QrcodeScanner = new Html5QrcodeScanner(
-  "reader",
-  { fps: 10, qrbox: { width: 350, height: 350 }, aspectRatio: 1, experimentalFeatures: { useBarCodeDetectorIfSupported: true }, videoConstraints: { frameRate: 10, noiseSuppression: true } },
-  /* verbose= */ true);
-
-html5QrcodeScanner.render(onScanSuccess, onScanFailure);

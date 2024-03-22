@@ -12,5 +12,8 @@
     "html5-qrcode": "^2.3.8",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "qr-scanner": "^1.4.2"
   }
 }

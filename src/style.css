@@ -72,3 +72,19 @@ video {
     background-color: #f9f9f9;
   }
 }
+div {
+  margin-bottom: 16px;
+}
+
+#flash-toggle {
+  display: none;
+}
+
+hr {
+  margin-top: 32px;
+}
+
+input[type="file"] {
+  display: block;
+  margin-bottom: 16px;
+}

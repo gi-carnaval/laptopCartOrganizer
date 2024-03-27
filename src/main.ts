@@ -43,8 +43,8 @@ const carrinhosDicionario: CarrinhosDicionarioProps = {
 }
 
 function verifyCart(code: string): string | null {
-  cartNumberResult.innerHTML = null
-  cartNumberResult.style.background = null
+  cartNumberResult.innerHTML = ""
+  cartNumberResult.style.background = "transparent"
   for (const cartKey in carts) {
     const cartItems = carts[cartKey];
     if (cartItems.includes(Number(code))) {

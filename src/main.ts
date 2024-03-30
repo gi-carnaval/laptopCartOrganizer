@@ -66,6 +66,8 @@ function verifyCart(code: string) {
 
     } else {
       resultSpan.innerHTML = `O notebook ${code} não pertence a nenhum carrinho`
+      cartNumberResult.innerHTML = ""
+      cartNumberResult.style.background = "transparent"
     }
   }
 

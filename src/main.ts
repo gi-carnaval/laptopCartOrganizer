@@ -64,6 +64,8 @@ function verifyCart(code: string) {
       cartNumberResult.innerHTML = carrinhosDicionario[cartKey]
       cartNumberResult.style.background = "red"
 
+      return
+
     } else {
       resultSpan.innerHTML = `O notebook ${code} não pertence a nenhum carrinho`
       cartNumberResult.innerHTML = ""

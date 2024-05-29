@@ -14,7 +14,7 @@ O Sistema de Organização de Notebooks Escolares é uma aplicação web desenvo
 - NPM (Node Package Manager)
 
 ## Instalação
-- Clone o repositório do projeto: git clone https://github.com/seu-usuario/sistema-organizacao-notebooks.git
+- Clone o repositório do projeto: git clone [https://github.com/seu-usuario/sistema-organizacao-notebooks.git]
 - Acesse o diretório do projeto: cd sistema-organizacao-notebooks
 - Instale as dependências do projeto: npm install
 - Inicie o servidor: npm run dev

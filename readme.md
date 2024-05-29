@@ -20,5 +20,11 @@ O Sistema de Organização de Notebooks Escolares é uma aplicação web desenvo
 - Inicie o servidor: npm run dev
 - Acesse o sistema através do navegador: http://localhost:3000
 
+## To Do
+- [x] Escanear Código QR do notebook.
+- [x] Verificar carrinho de origem do notebook.
+- [ ] Cadastrar user admin para privilégios de acessos.
+- [ ] Adicionar, Atualizar e Deletar notebooks de carrinhos com Admin.
+
 ## Licença
 Este projeto está licenciado sob a Licença MIT.

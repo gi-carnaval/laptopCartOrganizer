@@ -46,6 +46,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
@@ -54,15 +55,19 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
 .cameraSelect{
   width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  flex-direction: row;
+  flex-direction: column;
 
-  font-size: 1.5rem;
+  
 }
 
 .cameraSelect > select {
@@ -101,7 +106,48 @@ video {
   width: 80%;
 }
 
+.inputCode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accordionButton {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  background: none;
+  padding: none;
+  margin: none;
+}
+
+#laptopCodeInput {
+  display: none;
+  font-size: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+#laptopCodeInput > input {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+#laptopCodeInput > .buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+#laptopCodeInput > .buttons > button {
+  font-size: 1.25rem;
+}
+
+
 @media (min-width: 769px) and (max-width: 1024px){
+  h3 {
+    font-size: 3rem;
+  }
   body {
     justify-content: center;
     margin: 0 3rem;
@@ -113,7 +159,7 @@ video {
 
   .cameraSelect {
     flex-direction: column;
-    font-size: 3rem;
+    
   }
   .cameraSelect > select{
     font-size: 3rem;
@@ -135,5 +181,22 @@ video {
 
   h1 {
     font-size: 4rem;
+  }
+
+  .accordionButton {
+    font-size: 2.5rem;
+  }
+  #laptopCodeInput {
+    display: none;
+  }
+  #laptopCodeInput > input {
+    font-size: 4rem;
+    padding: 0.5rem;
+  }
+  .inputCode > #laptopCodeInput > label {
+    font-size: 3rem;
+  }
+  #laptopCodeInput > .buttons > button {
+    font-size: 3rem;
   }
 }

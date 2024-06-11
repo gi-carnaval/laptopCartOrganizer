@@ -120,9 +120,7 @@ function toggleAccordion(){
     } else {
         accordionDiv.style.display="none";
         accordionArrow.innerHTML="▼"
-    }
-    
-    console.log("Apertou: ", currentDisplay)
+    }    
 }
 
 accordionButton.addEventListener('click', () => toggleAccordion())

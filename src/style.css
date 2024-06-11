@@ -115,11 +115,13 @@ video {
 .accordionButton {
   display: flex;
   align-items: center;
+  gap: 1rem;
   font-size: 1.5rem;
   background: none;
   padding: none;
   margin: none;
 }
+
 
 #laptopCodeInput {
   display: none;
@@ -129,7 +131,14 @@ video {
   gap: 2rem;
 }
 
-#laptopCodeInput > input {
+.labelInput {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  gap: 0.25rem;
+}
+
+#laptopCodeInput > .labelInput > input {
   font-size: 1.5rem;
   padding: 0.5rem;
 }
@@ -189,12 +198,12 @@ video {
   #laptopCodeInput {
     display: none;
   }
-  #laptopCodeInput > input {
+  #laptopCodeInput > .labelInput > input {
     font-size: 4rem;
     padding: 0.5rem;
   }
-  .inputCode > #laptopCodeInput > label {
-    font-size: 3rem;
+ #laptopCodeInput> .labelInput > label {
+    font-size: 2.5rem;
   }
   #laptopCodeInput > .buttons > button {
     font-size: 3rem;

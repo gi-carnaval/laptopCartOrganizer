@@ -4,16 +4,25 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"npm run dev:fastify\" \"npm run dev:vite\"",
+    "dev:fastify": "node server.js",
+    "dev:vite": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^20.14.2",
+    "concurrently": "^8.2.2",
     "html5-qrcode": "^2.3.8",
+    "prisma": "^5.15.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   },
   "dependencies": {
+    "@fastify/cors": "^7.0.0",
+    "@prisma/client": "^5.15.0",
+    "fastify": "^4.28.0",
+    "fastify-cors": "^6.1.0",
     "qr-scanner": "^1.4.2"
   }
 }

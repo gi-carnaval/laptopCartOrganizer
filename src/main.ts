@@ -22,6 +22,7 @@ let resultSpan = <HTMLElement>document.getElementById('resultSpan');
 const accordionButton = <HTMLElement>document.getElementById('accordionButton');
 let cartNumberResult = <HTMLElement>document.getElementById('cartNumberResult');
 const laptopForm = <HTMLElement>document.getElementById('laptopCodeInput')
+
 let resultWaiting = ''
 
 
@@ -64,7 +65,7 @@ const carrinhosDicionario: CarrinhosDicionarioProps = {
 
 function getValuesFromLaptopForm(event: SubmitEvent) {
     event.preventDefault()
-    const laptopCode = (document.getElementById('laptopCode') as HTMLInputElement).value;
+    const laptopCode = (<HTMLInputElement>document.getElementById('laptopCode')).value;
     
     verifyCart(laptopCode)
 
@@ -75,8 +76,7 @@ function laptopCodeFormInitializate() {
 }
 
 function verifyCart(code: string) {
-    cartNumberResult.innerHTML = ""
-    cartNumberResult.style.background = "transparent"
+    resetResult()
 
     for (const cartKey in carts) {
         const cartItems = carts[cartKey];
@@ -111,8 +111,8 @@ function setResult(result: ResultItemProps) {
 }
 
 function toggleAccordion(){
-    const accordionDiv = document.getElementById("laptopCodeInput")as HTMLDivElement
-    const accordionArrow = document.getElementById('accordionArrow') as HTMLSpanElement
+    const accordionDiv = <HTMLDivElement>document.getElementById("laptopCodeInput")
+    const accordionArrow = <HTMLSpanElement>document.getElementById('accordionArrow')
     const currentDisplay = accordionDiv.style.display ? accordionDiv.style.display : 'none';
     if(currentDisplay == "none"){
         accordionDiv.style.display="flex";
@@ -137,11 +137,21 @@ videoContainer.className = "example-style-1"
 scanner.setInversionMode("both");
 
 camList.addEventListener('change', (event) => {
-    const target = event.target as HTMLSelectElement;
+    const target = <HTMLSelectElement>event.target;
     if (target && target instanceof HTMLSelectElement) {
         scanner.setCamera(target.value);
     }
 });
+
+const resetInputButton = <HTMLInputElement>document.getElementById("limparInput")
+
+function resetResult() {
+    resultSpan.innerHTML = ""
+    cartNumberResult.innerHTML = ""
+    cartNumberResult.style.background = "transparent"
+}
+
+resetInputButton.addEventListener("click", resetResult)
 
 const botaoIniciar = document.getElementById('start-button')
 const botaoEncerrar = document.getElementById('stop-button')
@@ -154,6 +164,7 @@ if (botaoIniciar && botaoEncerrar) {
 
     botaoEncerrar.addEventListener('click', () => {
         scanner.stop();
+        resetResult();
     });
 }
 
